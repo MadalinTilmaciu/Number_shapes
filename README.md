@@ -1,6 +1,6 @@
 # Number shapes
 
-This is a simple one-page app that check if a given number is a square or a cube.
+This is a simple one-page app that checks if a given number is a square or a cube.
 
 ## Flutter tips
 
