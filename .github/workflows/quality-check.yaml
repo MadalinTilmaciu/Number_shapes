@@ -8,9 +8,6 @@ jobs:
       - name: Get code
         uses: actions/checkout@v3
 
-      - name: Add config file
-        run: echo ${{ secrets.CONFIG }} | base64 --decode -o lib/config2.dart
-
       - name: Install flutter
         uses: subosito/flutter-action@v2
 
