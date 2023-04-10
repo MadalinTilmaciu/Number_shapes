@@ -1,10 +1,8 @@
-# app
+# Number shapes
 
-A new Flutter project.
+This is a simple one-page app that checks if a given number is a square or a cube.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
+## Flutter tips
 
 A few resources to get you started if this is your first Flutter project:
 
