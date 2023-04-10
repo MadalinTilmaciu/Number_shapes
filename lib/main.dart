@@ -1,7 +1,6 @@
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
-import 'dart:math';
 
 void main() {
   runApp(const NumberShapesApp());
@@ -34,8 +33,8 @@ class NumberShapesPage extends StatefulWidget {
 }
 
 class _NumberShapesPageState extends State<NumberShapesPage> {
-  final _formKey = GlobalKey<FormState>();
-  final _inputController = TextEditingController();
+  final GlobalKey _formKey = GlobalKey<FormState>();
+  final TextEditingController _inputController = TextEditingController();
 
   @override
   void dispose() {
@@ -53,8 +52,7 @@ class _NumberShapesPageState extends State<NumberShapesPage> {
         centerTitle: true,
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
+        children: <Widget>[
           const Padding(
             padding: EdgeInsets.only(
               top: 15,
@@ -74,8 +72,10 @@ class _NumberShapesPageState extends State<NumberShapesPage> {
               key: _formKey,
               child: TextFormField(
                 controller: _inputController,
-                keyboardType: const TextInputType.numberWithOptions(),
-                inputFormatters: [
+                keyboardType: const TextInputType.numberWithOptions(
+                  decimal: true,
+                ),
+                inputFormatters: <TextInputFormatter>[
                   FilteringTextInputFormatter.allow(
                     RegExp(r'^\d*'),
                   ),
@@ -99,12 +99,12 @@ class _NumberShapesPageState extends State<NumberShapesPage> {
   }
 
   bool _isSquare(int number) {
-    return (sqrt(number) == (sqrt(number).toInt()));
+    return sqrt(number) == (sqrt(number).toInt());
   }
 
   bool _isTriangular(int number) {
-    num root = pow(number, 1 / 3).ceil();
-    return (number == pow(root, 3).ceil());
+    final num root = pow(number, 1 / 3).ceil();
+    return number == pow(root, 3).ceil();
   }
 
   Text _dialogMessage(String msg) {
